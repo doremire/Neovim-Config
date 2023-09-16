@@ -54,39 +54,39 @@
 
 ```
 
-| プラグイン名                            | GitHub リンク                                                        | 説明                                       |
-| --------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------ |
-| vim-jetpack                             | [リンク](tani/vim-jetpack)                                           | パッケージマネージャー                     |
-| Telescope.nvim                          | [リンク](https://github.com/nvim-telescope/telescope.nvim)           | ファイル検索・選択                         |
-| rose-pine/neovim                        | [リンク](https://github.com/rose-pine/neovim)                        | 色テーマ                                   |
-| folke/trouble.nvim                      | [リンク](https://github.com/folke/trouble.nvim)                      | エラーや警告の表示                         |
-| nvim-treesitter/nvim-treesitter         | [リンク](https://github.com/nvim-treesitter/nvim-treesitter)         | 構文ハイライトとテキストオブジェクトの改善 |
-| nvim-treesitter/playground              | [リンク](https://github.com/nvim-treesitter/playground)              | AST コード                                 |
-| theprimeagen/harpoon                    | [リンク](https://github.com/theprimeagen/harpoon)                    | マークとワークスペースの管理               |
-| theprimeagen/refactoring.nvim           | [リンク](https://github.com/theprimeagen/refactoring.nvim)           | リファクタリング支援                       |
-| mbbill/undotree                         | [リンク](https://github.com/mbbill/undotree)                         | undo のツリー表示                          |
-| tpope/vim-fugitive                      | [リンク](https://github.com/tpope/vim-fugitive)                      | Git 操作のためのプラグイン                 |
-| nvim-treesitter/nvim-treesitter-context | [リンク](https://github.com/nvim-treesitter/nvim-treesitter-context) | 現在のコンテキストを表示                   |
-| VonHeikemen/lsp-zero.nvim               | [リンク](https://github.com/VonHeikemen/lsp-zero.nvim)               | LSP サポート                               |
-| folke/zen-mode.nvim                     | [リンク](https://github.com/folke/zen-mode.nvim)                     | 集中モードプラグイン                       |
-| github/copilot.vim                      | [リンク](https://github.com/github/copilot.vim)                      | GitHub Copilot のサポート                  |
-| eandrju/cellular-automaton.nvim         | [リンク](https://github.com/eandrju/cellular-automaton.nvim)         | セルオートマトン                           |
-| laytan/cloak.nvim                       | [リンク](https://github.com/laytan/cloak.nvim)                       | テキストを隠すためのモード                 |
-| nvim-lualine/lualine.nvim               | [リンク](https://github.com/nvim-lualine/lualine.nvim)               | ステータスライン                           |
-| utilyre/barbecue.nvim                   | [リンク](https://github.com/utilyre/barbecue.nvim)                   | ステータスバー                             |
-| nvim-tree/nvim-web-devicons             | [リンク](https://github.com/nvim-tree/nvim-web-devicons)             | アイコン                                   |
-| lewis6991/gitsigns.nvim                 | [リンク](https://github.com/lewis6991/gitsigns.nvim)                 | Git の変更表示                             |
-| romgrk/barbar.nvim                      | [リンク](https://github.com/romgrk/barbar.nvim)                      | タブバー                                   |
-| folke/which-key.nvim                    | [リンク](https://github.com/folke/which-key.nvim)                    | キーバインディング                         |
-| lukas-reineke/indent-blankline.nvim     | [リンク](https://github.com/lukas-reineke/indent-blankline.nvim)     | インデントライン                           |
-| nvim-neo-tree/neo-tree.nvim             | [リンク](https://github.com/nvim-neo-tree/neo-tree.nvim)             | ファイルツリー                             |
-| j-hui/fidget.nvim                       | [リンク](https://github.com/j-hui/fidget.nvim)                       | ページネーション                           |
-| lsp_lines.nvim                          | [リンク](https://git.sr.ht/~whynothugo/lsp_lines.nvim)               | LSP 行ハイライト                           |
-| norcalli/nvim-colorizer.lua             | [リンク](https://github.com/norcalli/nvim-colorizer.lua)             | カラーコードハイライト                     |
-| windwp/nvim-autopairs                   | [リンク](https://github.com/windwp/nvim-autopairs)                   | 自動ペアリング                             |
-| lewis6991/gitsigns.nvim                 | [リンク](https://github.com/lewis6991/gitsigns.nvim)                 | Git の変更表示                             |
-| daltonmenezes/aura-theme                | [リンク](https://github.com/daltonmenezes/aura-theme)                | Lua                                        |
-| folke/noice.nvim                        | [リンク](https://github.com/folke/noice.nvim)                        | コマンドラインツール                       |
+| プラグイン名                            | GitHub リンク                                                        | 説明                                           |
+| --------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------- |
+| vim-jetpack                             | [リンク](tani/vim-jetpack)                                           | Vimの拡張パッケージマネージャー                |
+| Telescope.nvim                          | [リンク](https://github.com/nvim-telescope/telescope.nvim)           | ファイルとバッファの検索・表示ツール           |
+| rose-pine/neovim                        | [リンク](https://github.com/rose-pine/neovim)                        | Neovimの色テーマ                               |
+| folke/trouble.nvim                      | [リンク](https://github.com/folke/trouble.nvim)                      | Neovimのエラー・警告表示ツール                |
+| nvim-treesitter/nvim-treesitter         | [リンク](https://github.com/nvim-treesitter/nvim-treesitter)         | 構文ハイライトとテキストオブジェクトの強化     |
+| nvim-treesitter/playground              | [リンク](https://github.com/nvim-treesitter/playground)              | ソースコードのASTビューア                    |
+| theprimeagen/harpoon                    | [リンク](https://github.com/theprimeagen/harpoon)                    | クイックファイル切り替えツール                |
+| theprimeagen/refactoring.nvim           | [リンク](https://github.com/theprimeagen/refactoring.nvim)           | Neovimのコードリファクタリング支援ツール      |
+| mbbill/undotree                         | [リンク](https://github.com/mbbill/undotree)                         | undo履歴をツリー形式で表示                   |
+| tpope/vim-fugitive                      | [リンク](https://github.com/tpope/vim-fugitive)                      | VimとNeovimのGitクライアント                 |
+| nvim-treesitter/nvim-treesitter-context | [リンク](https://github.com/nvim-treesitter/nvim-treesitter-context) | アクティブなコードコンテキストのハイライト    |
+| VonHeikemen/lsp-zero.nvim               | [リンク](https://github.com/VonHeikemen/lsp-zero.nvim)               | 軽量なLSPクライアント                        |
+| folke/zen-mode.nvim                     | [リンク](https://github.com/folke/zen-mode.nvim)                     | 集中作業モード                               |
+| github/copilot.vim                      | [リンク](https://github.com/github/copilot.vim)                      | GitHub CopilotのNeovimサポート               |
+| eandrju/cellular-automaton.nvim         | [リンク](https://github.com/eandrju/cellular-automaton.nvim)         | セルオートマトンのビジュアル表現              |
+| laytan/cloak.nvim                       | [リンク](https://github.com/laytan/cloak.nvim)                       | 選択したテキストの隠蔽                       |
+| nvim-lualine/lualine.nvim               | [リンク](https://github.com/nvim-lualine/lualine.nvim)               | ステータスラインカスタマイズツール            |
+| utilyre/barbecue.nvim                   | [リンク](https://github.com/utilyre/barbecue.nvim)                   | カスタマイズ可能なステータスバー              |
+| nvim-tree/nvim-web-devicons             | [リンク](https://github.com/nvim-tree/nvim-web-devicons)             | Neovim用のファイルアイコン                   |
+| lewis6991/gitsigns.nvim                 | [リンク](https://github.com/lewis6991/gitsigns.nvim)                 | Gitの変更をサイドバーでハイライト             |
+| romgrk/barbar.nvim                      | [リンク](https://github.com/romgrk/barbar.nvim)                      | カスタマイズ可能なタブバー                   |
+| folke/which-key.nvim                    | [リンク](https://github.com/folke/which-key.nvim)                    | キーバインドのヘルパー                       |
+| lukas-reineke/indent-blankline.nvim     | [リンク](https://github.com/lukas-reineke/indent-blankline.nvim)     | インデントガイドライン表示ツール              |
+| nvim-neo-tree/neo-tree.nvim             | [リンク](https://github.com/nvim-neo-tree/neo-tree.nvim)             | サイドバーにファイルツリーを表示              |
+| j-hui/fidget.nvim                       | [リンク](https://github.com/j-hui/fidget.nvim)                       | ビジュアル効果とアニメーション                |
+| lsp_lines.nvim                          | [リンク](https://git.sr.ht/~whynothugo/lsp_lines.nvim)               | LSP情報をラインに表示                       |
+| norcalli/nvim-colorizer.lua             | [リンク](https://github.com/norcalli/nvim-colorizer.lua)             | カラーコードのオンスクリーンハイライト        |
+| windwp/nvim-autopairs                   | [リンク](https://github.com/windwp/nvim-autopairs)                   | 括弧などの自動ペア挿入                       |
+| daltonmenezes/aura-theme                | [リンク](https://github.com/daltonmenezes/aura-theme)                | Neovimのカラーテーマ                         |
+| folke/noice.nvim                        | [リンク](https://github.com/folke/noice.nvim)                        | コマンドラインノイズリダクションツール       |
+
 
 **Thanks to all developers💜**
 
