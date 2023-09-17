@@ -82,10 +82,11 @@ require('jetpack.packer').startup(function(use)
 
     use 'nvim-tree/nvim-web-devicons'
     use 'lewis6991/gitsigns.nvim'
+
     use({
-        'romgrk/barbar.nvim',
+        'akinsho/bufferline.nvim',
         config = function()
-            require("barbar").setup()
+            require("bufferline").setup()
         end
     })
 
@@ -109,7 +110,9 @@ require('jetpack.packer').startup(function(use)
             require("indent_blankline").setup {
                 space_char_blankline = " ",
                 show_current_context = true,
-                show_current_context_start = true
+                show_current_context_start = true,
+                filetype_exclude = {"dashboard"},
+                buftype_exclude = {"terminal"}
             }
         end
     })
@@ -157,9 +160,7 @@ require('jetpack.packer').startup(function(use)
         end
     })
 
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        -- run = ':TSUpdate'
+    use {'nvim-treesitter/nvim-treesitter' -- run = ':TSUpdate'
     } -- Recommended, not required.
     use {
         'daltonmenezes/aura-theme',
@@ -211,5 +212,58 @@ require('jetpack.packer').startup(function(use)
         end,
         requires = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}
     })
+
+    use {
+	    'lukas-reineke/headlines.nvim',
+	    after = 'nvim-treesitter',
+    }
+
+    -- install without yarn or npm
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+
+    use({ "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+        ft = { "markdown" },
+    })
+
+    use {
+        'glepnir/dashboard-nvim',
+        event = 'VimEnter',
+        config = function()
+            require('dashboard').setup {
+                theme = 'hyper',
+                config = {
+                    header = {
+                        '',
+                        ' ⣇⣿⠘⣿⣿⣿⡿⡿⣟⣟⢟⢟⢝⠵⡝⣿⡿⢂⣼⣿⣷⣌⠩⡫⡻⣝⠹⢿⣿⣷ ',
+                        ' ⡆⣿⣆⠱⣝⡵⣝⢅⠙⣿⢕⢕⢕⢕⢝⣥⢒⠅⣿⣿⣿⡿⣳⣌⠪⡪⣡⢑⢝⣇ ',
+                        ' ⡆⣿⣿⣦⠹⣳⣳⣕⢅⠈⢗⢕⢕⢕⢕⢕⢈⢆⠟⠋⠉⠁⠉⠉⠁⠈⠼⢐⢕⢽ ',
+                        ' ⡗⢰⣶⣶⣦⣝⢝⢕⢕⠅⡆⢕⢕⢕⢕⢕⣴⠏⣠⡶⠛⡉⡉⡛⢶⣦⡀⠐⣕⢕ ',
+                        ' ⡝⡄⢻⢟⣿⣿⣷⣕⣕⣅⣿⣔⣕⣵⣵⣿⣿⢠⣿⢠⣮⡈⣌⠨⠅⠹⣷⡀⢱⢕ ',
+                        ' ⡝⡵⠟⠈⢀⣀⣀⡀⠉⢿⣿⣿⣿⣿⣿⣿⣿⣼⣿⢈⡋⠴⢿⡟⣡⡇⣿⡇⡀⢕ ',
+                        ' ⡝⠁⣠⣾⠟⡉⡉⡉⠻⣦⣻⣿⣿⣿⣿⣿⣿⣿⣿⣧⠸⣿⣦⣥⣿⡇⡿⣰⢗⢄ ',
+                        ' ⠁⢰⣿⡏⣴⣌⠈⣌⠡⠈⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣬⣉⣉⣁⣄⢖⢕⢕⢕ ',
+                        ' ⡀⢻⣿⡇⢙⠁⠴⢿⡟⣡⡆⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣵⣵⣿ ',
+                        ' ⡻⣄⣻⣿⣌⠘⢿⣷⣥⣿⠇⣿⣿⣿⣿⣿⣿⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ',
+                        ' ⣷⢄⠻⣿⣟⠿⠦⠍⠉⣡⣾⣿⣿⣿⣿⣿⣿⢸⣿⣦⠙⣿⣿⣿⣿⣿⣿⣿⣿⠟ ',
+                        ' ⡕⡑⣑⣈⣻⢗⢟⢞⢝⣻⣿⣿⣿⣿⣿⣿⣿⠸⣿⠿⠃⣿⣿⣿⣿⣿⣿⡿⠁⣠ ',
+                        ' ⡝⡵⡈⢟⢕⢕⢕⢕⣵⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⠿⠋⣀⣈⠙ ',
+                        ' ⡝⡵⡕⡀⠑⠳⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⢉⡠⡲⡫⡪⡪⡣ ',
+                        '', 
+                    },
+                    footer = {
+                        '',
+                        '🚀 Sharp tools make good work.'
+                    },
+                }
+            }
+        end,
+        requires = {'nvim-tree/nvim-web-devicons'}
+    }
+ 
 
 end)

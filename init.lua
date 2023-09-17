@@ -1,11 +1,9 @@
 local function setup_neovim()
     -- Jetpackがインストールされているかを確認
-    local f = io.open("~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim", "r")
-    if not f then
-        -- Jetpackが入っていなかったらインストール
-        os.execute('curl -fLo ~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim')
-    else
-        f:close()
+    local jetpackfile = vim.fn.stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+    local jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+    if vim.fn.filereadable(jetpackfile) == 0 then
+        vim.fn.system(string.format('curl -fsSLo %s --create-dirs %s', jetpackfile, jetpackurl))
     end
 
     -- プラグインのファイルを読み込み
