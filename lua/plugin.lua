@@ -2,12 +2,12 @@
 vim.cmd('packadd vim-jetpack')
 require('jetpack.packer').startup(function(use)
     -- Packer can manage itself
-    use {'tani/vim-jetpack'} -- bootstrap, Packer管理用のプラグイン
+    use { 'tani/vim-jetpack' } -- bootstrap, Packer管理用のプラグイン
 
     use {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.0',
-        requires = {{'nvim-lua/plenary.nvim'}} -- ファイル検索・選択UI
+        requires = { { 'nvim-lua/plenary.nvim' } } -- ファイル検索・選択UI
     }
 
     use({
@@ -34,47 +34,48 @@ require('jetpack.packer').startup(function(use)
                 with_sync = true
             })
             ts_update()
-        end -- 構文ハイライトとテキストオブジェクトの改善
+        end                                        -- 構文ハイライトとテキストオブジェクトの改善
     })
-    use("nvim-treesitter/playground") -- treesitterの実験場
-    use("theprimeagen/harpoon") -- マークとワークスペースの管理
-    use("theprimeagen/refactoring.nvim") -- リファクタリング支援
-    use("mbbill/undotree") -- undoのツリー表示
-    use("tpope/vim-fugitive") -- Git操作のためのプラグイン
+    use("nvim-treesitter/playground")              -- treesitterの実験場
+    use("theprimeagen/harpoon")                    -- マークとワークスペースの管理
+    use("theprimeagen/refactoring.nvim")           -- リファクタリング支援
+    use("mbbill/undotree")                         -- undoのツリー表示
+    use("tpope/vim-fugitive")                      -- Git操作のためのプラグイン
     use("nvim-treesitter/nvim-treesitter-context") -- 現在のコンテキストを表示
 
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
-        requires = {{'neovim/nvim-lspconfig'}, -- LSPサポート
-        {'williamboman/mason.nvim'}, -- Masonビルドツールのサポート
-        {'williamboman/mason-lspconfig.nvim'}, -- Mason LSP設定
-        {'hrsh7th/nvim-cmp'}, -- 自動補完
-        {'hrsh7th/cmp-buffer'}, {'hrsh7th/cmp-path'}, {'saadparwaiz1/cmp_luasnip'}, {'hrsh7th/cmp-nvim-lsp'},
-                    {'hrsh7th/cmp-nvim-lua'}, {'L3MON4D3/LuaSnip'}, -- スニペットサポート
-        {'rafamadriz/friendly-snippets'} -- 豊富なスニペット集
+        requires = { { 'neovim/nvim-lspconfig' },    -- LSPサポート
+            { 'williamboman/mason.nvim' },           -- Masonビルドツールのサポート
+            { 'williamboman/mason-lspconfig.nvim' }, -- Mason LSP設定
+            { 'hrsh7th/nvim-cmp' },                  -- 自動補完
+            { 'hrsh7th/cmp-buffer' }, { 'hrsh7th/cmp-path' }, { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' }, { 'L3MON4D3/LuaSnip' }, -- スニペットサポート
+            { 'rafamadriz/friendly-snippets' }                  -- 豊富なスニペット集
         }
     }
 
-    use("folke/zen-mode.nvim") -- 集中モードプラグイン
-    use("github/copilot.vim") -- GitHub Copilotのサポート
+    use("folke/zen-mode.nvim")             -- 集中モードプラグイン
+    use("github/copilot.vim")              -- GitHub Copilotのサポート
     use("eandrju/cellular-automaton.nvim") -- セルオートマトン
-    use("laytan/cloak.nvim") -- テキストを隠すためのモード
+    use("laytan/cloak.nvim")               -- テキストを隠すためのモード
 
     ------------------------------------------------------------------------------
 
     use {
         'nvim-lualine/lualine.nvim',
-        requires = {'nvim-tree/nvim-web-devicons' -- opt = true
+        requires = { 'nvim-tree/nvim-web-devicons' -- opt = true
         }
     }
 
     use({
         "utilyre/barbecue.nvim",
         -- tag = "*",
-        requires = {"SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons" -- optional dependency
+        requires = { "SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons" -- optional dependency
         },
-        after = "nvim-web-devicons", -- keep this if you're using NvChad
+        after = "nvim-web-devicons",                                      -- keep this if you're using NvChad
         config = function()
             require("barbecue").setup()
         end
@@ -111,8 +112,8 @@ require('jetpack.packer').startup(function(use)
                 space_char_blankline = " ",
                 show_current_context = true,
                 show_current_context_start = true,
-                filetype_exclude = {"dashboard"},
-                buftype_exclude = {"terminal"}
+                filetype_exclude = { "dashboard" },
+                buftype_exclude = { "terminal" }
             }
         end
     })
@@ -120,8 +121,9 @@ require('jetpack.packer').startup(function(use)
     use {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
-        requires = {"nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim"}
+        requires = { "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim" }
     }
 
     use {
@@ -131,13 +133,6 @@ require('jetpack.packer').startup(function(use)
             require("fidget").setup()
         end
     }
-
-    use({
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        config = function()
-            require("lsp_lines").setup()
-        end
-    })
 
     use {
         'norcalli/nvim-colorizer.lua',
@@ -160,8 +155,8 @@ require('jetpack.packer').startup(function(use)
         end
     })
 
-    use {'nvim-treesitter/nvim-treesitter' -- run = ':TSUpdate'
-    } -- Recommended, not required.
+    use { 'nvim-treesitter/nvim-treesitter' -- run = ':TSUpdate'
+    }                                       -- Recommended, not required.
     use {
         'daltonmenezes/aura-theme',
         rtp = 'packages/neovim',
@@ -201,21 +196,20 @@ require('jetpack.packer').startup(function(use)
                 },
                 -- you can enable a preset for easier configuration
                 presets = {
-                    bottom_search = false, -- use a classic bottom cmdline for search
-                    command_palette = false, -- position the cmdline and popupmenu together
+                    bottom_search = false,        -- use a classic bottom cmdline for search
+                    command_palette = false,      -- position the cmdline and popupmenu together
                     long_message_to_split = true, -- long messages will be sent to a split
-                    inc_rename = false, -- enables an input dialog for inc-rename.nvim
-                    lsp_doc_border = false -- add a border to hover docs and signature help
+                    inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+                    lsp_doc_border = false        -- add a border to hover docs and signature help
                 }
             })
-
         end,
-        requires = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}
+        requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" }
     })
 
     use {
-	    'lukas-reineke/headlines.nvim',
-	    after = 'nvim-treesitter',
+        'lukas-reineke/headlines.nvim',
+        after = 'nvim-treesitter',
     }
 
     -- install without yarn or npm
@@ -224,7 +218,8 @@ require('jetpack.packer').startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
     })
 
-    use({ "iamcco/markdown-preview.nvim",
+    use({
+        "iamcco/markdown-preview.nvim",
         run = "cd app && npm install",
         setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
         ft = { "markdown" },
@@ -253,7 +248,7 @@ require('jetpack.packer').startup(function(use)
                         ' ⡕⡑⣑⣈⣻⢗⢟⢞⢝⣻⣿⣿⣿⣿⣿⣿⣿⠸⣿⠿⠃⣿⣿⣿⣿⣿⣿⡿⠁⣠ ',
                         ' ⡝⡵⡈⢟⢕⢕⢕⢕⣵⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⠿⠋⣀⣈⠙ ',
                         ' ⡝⡵⡕⡀⠑⠳⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⢉⡠⡲⡫⡪⡪⡣ ',
-                        '', 
+                        '',
                     },
                     footer = {
                         '',
@@ -262,8 +257,45 @@ require('jetpack.packer').startup(function(use)
                 }
             }
         end,
-        requires = {'nvim-tree/nvim-web-devicons'}
+        requires = { 'nvim-tree/nvim-web-devicons' }
     }
- 
 
+    use({
+        "barrett-ruth/live-server.nvim",
+        config = function()
+            require("live-server").setup()
+        end
+    })
+
+    use({
+        "Pocco81/auto-save.nvim",
+        config = function()
+            require("auto-save").setup {
+                debounce_delay = 5000, -- 自動保存までの遅延を1秒に設定
+            }
+        end,
+    })
+
+    use({
+        'mhartington/formatter.nvim',
+        config = function()
+            require("formatter").setup()
+        end
+    })
+    use { "akinsho/toggleterm.nvim",
+        --tag = '*',
+        config = function()
+            require("toggleterm").setup({
+                open_mapping = [[<c-\>]],
+            })
+        end }
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 end)
+
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

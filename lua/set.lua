@@ -19,6 +19,7 @@ local opts = {
     signcolumn = "yes",
     updatetime = 50,
     -- colorcolumn = "80",
+    autowrite = true
 }
 
 for key, value in pairs(opts) do
