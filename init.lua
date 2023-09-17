@@ -32,21 +32,10 @@ setup_neovim()
 local paths = {
     "remap",
     "set",
+    "core/mappings",
+    "core/auto"
 }
 
 for _, path in ipairs(paths) do
     require(path)
 end
-
-local opts = { noremap = true, silent = true }
-local mappings = { 'jj', 'kj', 'jk', 'kk' }
-
-for _, key in ipairs(mappings) do
-    vim.api.nvim_set_keymap('i', key, '<Esc>', opts)
-end
-
--- Ctrl+zをUndoにマッピング
-vim.api.nvim_set_keymap('n', '<C-z>', ':undo<CR>', { noremap = true, silent = true })
-
--- Ctrl+yをRedoにマッピング
-vim.api.nvim_set_keymap('n', '<C-y>', ':redo<CR>', { noremap = true, silent = true })
