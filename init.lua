@@ -32,10 +32,24 @@ setup_neovim()
 local paths = {
     "remap",
     "set",
-    "core/mappings",
-    "core/auto"
+    "mappings",
+    "auto"
 }
-
 for _, path in ipairs(paths) do
     require(path)
+end
+
+-- カーソルがHTMLファイル内にあることを確認してから展開
+if vim.bo.filetype == 'html' then
+    vim.cmd('normal! O<!DOCTYPE html>')
+    vim.cmd('normal! o<html lang="en">')
+    vim.cmd('normal! o<head>')
+    vim.cmd('normal! o    <meta charset="UTF-8">')
+    vim.cmd('normal! o    <meta name="viewport" content="width=device-width, initial-scale=1.0">')
+    vim.cmd('normal! o    <title>Document</title>')
+    vim.cmd('normal! o</head>')
+    vim.cmd('normal! o<body>')
+    vim.cmd('normal! o')
+    vim.cmd('normal! o</body>')
+    vim.cmd('normal! o</html>')
 end

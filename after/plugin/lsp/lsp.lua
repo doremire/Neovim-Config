@@ -2,17 +2,17 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
-lsp.ensure_installed({'tsserver', -- TypeScript/JavaScript
-'rust_analyzer', -- Rust
-'gopls', -- Go
-'pyright', -- Python
-'lua_ls', -- Lua
-'clangd', -- C/C++
-'jdtls', -- Java
-'html', -- HTML
-'cssls', -- CSS
-'jsonls', -- JSON
-'marksman', -- Markdown
+lsp.ensure_installed({ 'tsserver', -- TypeScript/JavaScript
+    'rust_analyzer',               -- Rust
+    'gopls',                       -- Go
+    'pyright',                     -- Python
+    'lua_ls',                      -- Lua
+    'clangd',                      -- C/C++
+    'jdtls',                       -- Java
+    'html',                        -- HTML
+    'cssls',                       -- CSS
+    'jsonls',                      -- JSON
+    'marksman',                    -- Markdown
 })
 
 -- Fix Undefined global 'vim'
@@ -84,9 +84,6 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function()
         vim.lsp.buf.signature_help()
     end, opts)
-
-   
-
 end)
 
 lsp.setup()
@@ -94,4 +91,3 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
-

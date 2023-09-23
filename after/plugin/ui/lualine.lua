@@ -102,21 +102,22 @@ local function custom_branch()
 end
 
 -- Lualineの設定
-require'lualine'.setup {
+require 'lualine'.setup {
     options = {
         theme = custom_colors,
-        section_separators = {'', ''},
-        component_separators = {'', ''}
+        section_separators = { '', '' },
+        component_separators = { '', '' },
+        globalstatus = true
     },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {custom_branch},
-        lualine_c = {{
+        lualine_a = { 'mode' },
+        lualine_b = { custom_branch },
+        lualine_c = { {
             'diagnostics',
-            sources = {'nvim_lsp'},
-            sections = {'error', 'warn', 'info', 'hint'}
-        }},
-        lualine_x = {git_info_japanese, location, spaces, get_encoding, get_fileformat, 'filetype'},
+            sources = { 'nvim_lsp' },
+            sections = { 'error', 'warn', 'info', 'hint' }
+        } },
+        lualine_x = { git_info_japanese, location, spaces, get_encoding, get_fileformat, 'filetype' },
         lualine_y = {},
         lualine_z = {}
     }

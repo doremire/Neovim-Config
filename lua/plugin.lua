@@ -265,4 +265,17 @@ require('jetpack.packer').startup(function(use)
             require('Comment').setup()
         end
     }
+
+    -- use 'alvan/vim-closetag'
+
+    use({
+        'windwp/nvim-ts-autotag',
+        config = function()
+            require 'nvim-treesitter.configs'.setup {
+                autotag = {
+                    enable = true,
+                }
+            }
+        end
+    })
 end)
