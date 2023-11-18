@@ -29,12 +29,19 @@ end
 -- 実行
 setup_neovim()
 
-local paths = {
-    "remap",
-    "set",
-    "mappings",
-    "auto"
-}
+local paths = { "remap", "set", "mappings", "auto" }
 for _, path in ipairs(paths) do
     require(path)
 end
+
+-- init.lua
+-- status.luaを読み込む
+local status = require('dev.status')
+
+-- 起動時に起動回数を増やす
+status.increment_launch()
+
+-- カスタムコマンドを作る
+vim.api.nvim_exec([[
+  command! ShowStatus lua require'dev.status'.show_status()
+]], false)

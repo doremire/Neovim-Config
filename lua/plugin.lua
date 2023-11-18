@@ -46,14 +46,19 @@ require('jetpack.packer').startup(function(use)
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
-        requires = { { 'neovim/nvim-lspconfig' },    -- LSPサポート
-            { 'williamboman/mason.nvim' },           -- Masonビルドツールのサポート
-            { 'williamboman/mason-lspconfig.nvim' }, -- Mason LSP設定
-            { 'hrsh7th/nvim-cmp' },                  -- 自動補完
-            { 'hrsh7th/cmp-buffer' }, { 'hrsh7th/cmp-path' }, { 'saadparwaiz1/cmp_luasnip' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-nvim-lua' }, { 'L3MON4D3/LuaSnip' }, -- スニペットサポート
-            { 'rafamadriz/friendly-snippets' }                  -- 豊富なスニペット集
+        requires = { 'neovim/nvim-lspconfig',    -- LSPサポート
+            'hrsh7th/nvim-cmp',                  -- 自動補完
+            'hrsh7th/cmp-nvim-lsp',              -- LSP補完
+            'hrsh7th/cmp-buffer',                -- Buffer補完
+            'hrsh7th/cmp-path',                  -- Path補完
+            'hrsh7th/vim-vsnip',                 -- Vsnipスニペットサポート
+            'hrsh7th/vim-vsnip-integ',           -- Vsnip統合
+            'rafamadriz/friendly-snippets',      -- 豊富なスニペット集
+            'williamboman/mason.nvim',           -- Masonビルドツールのサポート
+            'williamboman/mason-lspconfig.nvim', -- Mason LSP設定
+            'hrsh7th/cmp-nvim-lua',              -- Nvim Lua API補完
+            'saadparwaiz1/cmp_luasnip',          -- Luasnip補完
+            'L3MON4D3/LuaSnip'                   -- スニペットサポート
         }
     }
 
@@ -121,8 +126,7 @@ require('jetpack.packer').startup(function(use)
     use {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
-        requires = { "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        requires = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim" }
     }
 
@@ -209,20 +213,24 @@ require('jetpack.packer').startup(function(use)
 
     use {
         'lukas-reineke/headlines.nvim',
-        after = 'nvim-treesitter',
+        after = 'nvim-treesitter'
     }
 
     -- install without yarn or npm
     use({
         "iamcco/markdown-preview.nvim",
-        run = function() vim.fn["mkdp#util#install"]() end,
+        run = function()
+            vim.fn["mkdp#util#install"]()
+        end
     })
 
     use({
         "iamcco/markdown-preview.nvim",
         run = "cd app && npm install",
-        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-        ft = { "markdown" },
+        setup = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" }
     })
 
     use {
@@ -241,9 +249,9 @@ require('jetpack.packer').startup(function(use)
         "Pocco81/auto-save.nvim",
         config = function()
             require("auto-save").setup {
-                debounce_delay = 5000, -- 自動保存までの遅延を1秒に設定
+                debounce_delay = 5000 -- 自動保存までの遅延を1秒に設定
             }
-        end,
+        end
     })
 
     use({
@@ -252,13 +260,15 @@ require('jetpack.packer').startup(function(use)
             require("formatter").setup()
         end
     })
-    use { "akinsho/toggleterm.nvim",
-        --tag = '*',
+    use {
+        "akinsho/toggleterm.nvim",
+        -- tag = '*',
         config = function()
             require("toggleterm").setup({
-                open_mapping = [[<c-\>]],
+                open_mapping = [[<c-\>]]
             })
-        end }
+        end
+    }
     use {
         'numToStr/Comment.nvim',
         config = function()
@@ -273,9 +283,10 @@ require('jetpack.packer').startup(function(use)
         config = function()
             require 'nvim-treesitter.configs'.setup {
                 autotag = {
-                    enable = true,
+                    enable = true
                 }
             }
         end
     })
+
 end)
